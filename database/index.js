@@ -22,7 +22,7 @@ const logger = winston.createLogger({
 // app.use(logger('dev'));
 app.use(cors());
 app.use(express.json());
-let url = "mongodb+srv://jldu:426final@cluster0.gcgsvv0.mongodb.net/?retryWrites=true&w=majority";
+let url = ""; //MongoURL Here
 const client = new MongoClient(url, {
   serverApi: {
     version: ServerApiVersion.v1,
