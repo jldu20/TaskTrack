@@ -1,0 +1,50 @@
+services:
+  database:
+    build:
+      context: ./database   
+    ports:
+      - "4000:4000"   
+    container_name: database
+    networks:
+      - my-network
+
+  ui:
+    build:
+      context: ./project-manager 
+    ports:
+      - "3000:3000"
+    container_name: ui
+    networks:
+      - my-network
+
+  tasks:
+    build:
+      context: ./tasks   
+    ports:
+      - "4002:4002"    
+    container_name: tasks
+    networks:
+      - my-network
+
+  eventbus:
+    build:
+      context: ./event-bus   
+    ports:
+      - "4005:4005"
+    container_name: eventbus           
+    networks:
+      - my-network
+
+  projects:
+    build:
+      context: ./projects  
+    ports:
+      - "4001:4001"
+    container_name: projects 
+    networks:
+      - my-network
+
+
+networks:
+  my-network:
+    driver: bridge
